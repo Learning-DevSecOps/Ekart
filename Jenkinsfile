@@ -31,7 +31,7 @@ pipeline {
         stage('Docker Build') {
             steps {
                 sh """
-                    docker build -t ${DOCKER_HUB_REPO}:${BUILD_NUMBER} .
+                    docker build -t ${DOCKER_HUB_REPO}:${BUILD_NUMBER} ./docker/Dockerfile
                     docker tag ${DOCKER_HUB_REPO}:${BUILD_NUMBER} ${DOCKER_HUB_REPO}:latest
                 """
             }
