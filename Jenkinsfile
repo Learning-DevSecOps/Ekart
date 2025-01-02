@@ -2,7 +2,7 @@ pipeline {
     agent any
     tools {
         maven 'mvn-3.9.9'
-        docker 'docker'
+        dockerTool 'docker'
         git 'Default'
     }
     environment {
