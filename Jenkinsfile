@@ -26,5 +26,11 @@ pipeline {
                 sh 'mvn clean package -DskipTests=true'
             }
         }
+        stage('OWASP Scan') {
+            steps {
+                depdndencyCheck additionalArguments: '--scan ./ --format HTML', odcInstallation: 'dependency-check'
+                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+            }
+        }
     }
 }
