@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Git') {
             steps {
-                sh 'git branch: 'main', credentialsId: 'Gautam_GitHub_Creds', url: 'https://github.com/Learning-DevSecOps/Ekart.git''
+                git branch: 'main', credentialsId: 'Gautam_GitHub_Creds', url: 'https://github.com/Learning-DevSecOps/Ekart.git'
             }
         }
         stage('mvn') {
