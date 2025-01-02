@@ -13,6 +13,11 @@ pipeline {
             steps {
                 sh 'mvn clean compile -DskipTests=true'
             }
-        }        
+        } 
+        stage('mvn build') {
+            steps {
+                sh 'mvn clean Package -DskipTests=true'
+            }
+        }       
     }
 }
