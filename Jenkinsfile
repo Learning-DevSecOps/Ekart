@@ -28,8 +28,12 @@ pipeline {
         }
         stage('OWASP Scan') {
             steps {
-                depdndencyCheck additionalArguments: '--scan ./', odcInstallation: 'dependency-check'
-                dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
+                dependencyCheck(
+                    failBuildOnCVSS: 7,
+                    format: 'XML',
+                    outputDirectory: 'dependency-check-report',
+                    scanPath: '**/target/*.jar'
+                )
             }
         }
     }
